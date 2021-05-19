@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static bootstrap4 humanize i18n %}
+
+{% block title %}
+    <title>{{ _("인플루언서") }}</title>
+{% endblock %}
+
+{% block body %}
+    <div style="background-image: url('{% static 'img/html/influencer/influencer_list_bg.png' %}'); background-size: cover">
+        <div class="container g-py-30 g-py-90--lg g-px-150--lg">
+            <p class="g-font-size-28 g-font-size-40--md g-font-weight-700 g-color-white text-center">{{ _("인플루언서") }}</p>
+            <form action="{% url 'entertainer_search' %}" method="GET">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="input-group g-brd-primary--focus">
+                        <input id="searchField" class="form-control form-control-md border-right-0 g-rounded-left-5 pr-0" type="text" placeholder="{{ _("스타의 이름을 검색해보세요!") }}" name="search">
+                        <div class="input-group-append">
+                            <input onclick="fbq('track', 'Search');" id="search-btn" type="submit" value="{{ _("Search") }}" class="btn u-btn-coral text-white g-px-10 g-px-30--md g-rounded-0" disabled=""/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="container g-pt-10 g-pt-30--lg g-pb-70 g-pb-50--md">
+            <!-- 카테고리 -->
+            <div class="g-mt-10 g-mb-20 g-my-30--md">
+                {% for object in category %}
+                    <a style="background-color: rgba(0,0,0,0)" class="btn btn-md g-mx-2 g-my-2 {% if divider == object.divider %}active g-color-white g-color-white--hover g-font-weight-700 g-bg-gray-dark-v2{% else %}g-color-gray-dark-v3 g-bg-gray-light-v5{% endif %}" href="{% url 'influencer_list' divider=object.divider %}">{{ object.display }}</a>
+                {% endfor %}
+                <hr style="background-color: #525252" class="g-bg-gray-light-v5 g-my-0 g-hidden-sm-down">
+            </div>
+            <!-- 인플루언서 -->
+            <div class="row g-mt-10 g-mt-30--md g-px-5 g-px-10--md">
+                {% if not page_obj %}
+                    <div style="width: 100%" class="text-center">
+                        <p class="g-bg-gray-light-v5 g-mx-15 g-mx-0--lg g-py-50 g-rounded-5 g-font-size-20--md g-mt-10--lg">{{ _("이런, 일치하는 검색 결과가 없습니다.") }}</p>
+                    </div>
+                {% else %}
+                    {% for object in page_obj %}
+                        <div style="width: 50%" class="col-lg-3 g-mb-10 g-px-5 g-px-5--md">
+                            {% include 'influencer/home_list_card.html' %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="g-hidden-md-down">
+        {% include 'parts/footer.html' %}
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'vendor/popper.min.js' %}"></script>
+    <script>
+        $(function () {
+            $('#searchField').keyup(function () {
+                var text = $('#searchField').val();
+                var button = document.getElementById('search-btn');
+                if (text == '') {
+                    button.disabled = true;
+                } else {
+                    button.disabled = false;
+                }
+            });
+        });
+    </script>
+
+    <!-- JS Unify -->
+    <script src="{% static 'js/components/hs.tabs.js' %}"></script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+        $(document).on('ready', function () {
+            // initialization of tabs
+            $.HSCore.components.HSTabs.init('[role="tablist"]');
+        });
+
+        $(window).on('resize', function () {
+            setTimeout(function () {
+                $.HSCore.components.HSTabs.init('[role="tablist"]');
+            }, 200);
+        });
+    </script>
+{% endblock %}

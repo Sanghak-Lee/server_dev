@@ -1,0 +1,17 @@
+{% load static i18n %}
+
+<a href="{% url 'influencer_detail' object.unique_url %}" style="text-decoration: none;" class="g-color-gray-dark-v2">
+    <article style="position:relative;" class="home-influencer-banner g-rounded-5">
+        <div class="img-card g-rounded-5">
+            <div class="scale-card">
+                <img style="width: 100%;" class="g-rounded-5 g-bg-gray-light-v5" src="{{ object.introduce_img.url }}" alt="star_image">
+            </div>
+        </div>
+        <div style="position: absolute; bottom: 0; width:100%; height: 100%" class="list-ent-banner g-rounded-5"></div>
+        <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-px-15 g-mb-15">
+            <span class="g-font-size-12 g-font-weight-400 g-bg-coral g-mb-0 g-px-7 g-py-4 g-rounded-3">{{ object.divider }}</span>
+            <p class="g-font-size-18 g-font-size-28--md g-font-weight-700 g-mt-5 g-mb-0">{{ object.name }}</p>
+            <p class="g-font-size-14 g-mb-0">{{ object.introduce_job }}</p>
+        </div>
+    </article>
+</a>

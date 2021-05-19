@@ -1,0 +1,699 @@
+{% extends 'base.html' %}
+{% load static humanize i18n %}
+
+{% block head %}
+    <style type="text/css">
+        html, body {
+            background-color: #191919;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div>
+        {% if LANGUAGE_CODE == 'ko' %}
+            <!-- Korea / pc -->
+            <div id="carouselIndicators" class="carousel slide carousel-fade g-rounded-5 g-hidden-md-down" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_11.jpg' %}');" class="home-bg-img-crop">
+                            <div class="container">
+                                <div class="g-pl-50--xl g-pt-70 g-pb-60">
+                                    <div class="g-mb-25">
+                                        <span style="background-color: #ff2c7d" class="g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">아이돌</span>
+                                        <span style="position:relative; left: -4px" class="g-bg-gray-light-v5 g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">문종업</span>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='jongup' %}" style="text-decoration: none;">
+                                        <p style="line-height: 55px" class="g-color-white g-font-size-46--md g-font-weight-700 g-mb-15">문워크들을 위해<br>문종업이 여기 왔다!</p>
+                                        <p style="line-height: 26px" class="g-color-white g-font-size-16 g-mb-0">지금 인플루디오에서 문종업의 특별한<br>문워크가 되어보세요.<br>&nbsp;</p>
+                                        <a href="{% url 'entertainer_detail' unique_url='jongup' %}" style="background-color: #ff2c7d" class="btn btn-md g-rounded-5 g-mt-10 home-banner-btn g-color-gray-dark-v2">지금 바로 만나보기</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_10.jpg' %}');" class="home-bg-img-crop">
+                            <div class="container">
+                                <div class="g-pl-50--xl g-pt-70 g-pb-60">
+                                    <div class="g-mb-25">
+                                        <span style="background-color: #e7abff" class="g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">아이돌</span>
+                                        <span style="position:relative; left: -4px" class="g-bg-gray-light-v5 g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">드림노트</span>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}" style="text-decoration: none;">
+                                        <p style="line-height: 55px" class="g-color-white g-font-size-46--md g-font-weight-700 g-mb-15">팬들의 선물같은 존재 🎁<br>드림노트가 왔어요.</p>
+                                        <p style="line-height: 26px" class="g-color-white g-font-size-16 g-mb-0">지금 인플루디오에서 드림노트의 특별한<br>페이지가 되어보세요.<br>&nbsp;</p>
+                                        <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}" style="background-color: #e7abff" class="btn btn-md g-rounded-5 g-mt-10 home-banner-btn g-color-gray-dark-v2">지금 바로 만나보기</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_8.jpg' %}');" class="home-bg-img-crop">
+                            <div class="container">
+                                <div class="g-pl-50--xl g-pt-70 g-pb-60">
+                                    <div class="g-mb-25">
+                                        <span style="background-color: #000000" class="g-color-white g-px-10 g-py-5 g-font-size-12">가수</span>
+                                        <span style="position:relative; left: -4px" class="g-bg-gray-light-v5 g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">에일리</span>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='ailee' %}" style="text-decoration: none;">
+                                        <p style="line-height: 55px" class="g-color-black g-font-size-46--md g-font-weight-700 g-mb-15">K-POP 솔로 여왕 🏅<br>에일리가 돌아왔다!</p>
+                                        <p style="line-height: 26px" class="g-color-black g-font-size-16 g-mb-0">인플루디오에서만 볼 수 있는<br>에일리의 진짜 모습을 확인해보세요!<br>&nbsp;</p>
+                                        <a href="{% url 'entertainer_detail' unique_url='ailee' %}" style="background-color: #000000" class="btn btn-md g-rounded-5 g-mt-10 home-banner-btn g-color-white">지금 바로 만나보기</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_9.jpg' %}');" class="home-bg-img-crop">
+                            <div class="container">
+                                <div class="g-pl-50--xl g-pt-70 g-pb-60">
+                                    <div class="g-mb-25">
+                                        <span style="background-color: #8401ff" class="g-color-white g-px-10 g-py-5 g-font-size-12">아이돌</span>
+                                        <span style="position:relative; left: -4px" class="g-bg-gray-light-v5 g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">퍼플백</span>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}" style="text-decoration: none;">
+                                        <p style="line-height: 55px" class="g-color-white g-font-size-46--md g-font-weight-700 g-mb-15">상큼발랄 걸그룹 🍀<br>퍼플백이 왔어요.</p>
+                                        <p style="line-height: 26px" class="g-color-white g-font-size-16 g-mb-0">퍼플백이 팬 여러분들을 찾아왔어요.<br>인플루디오에서 퍼플백과 만나요 ~<br>&nbsp;</p>
+                                        <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}" style="background-color: #8401ff" class="btn btn-md g-rounded-5 g-mt-10 home-banner-btn g-color-white">지금 바로 만나보기</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_7.jpg' %}');" class="home-bg-img-crop">
+                            <div class="container">
+                                <div class="g-pl-50--xl g-pt-70 g-pb-60">
+                                    <div class="g-mb-25">
+                                        <span style="background-color: #000000" class="g-color-white g-px-10 g-py-5 g-font-size-12">아이돌</span>
+                                        <span style="position:relative; left: -4px" class="g-bg-gray-light-v5 g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">더스틴</span>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='dustin' %}" style="text-decoration: none;">
+                                        <p style="line-height: 55px" class="g-color-white g-font-size-46--md g-font-weight-700 g-mb-15">떠오르는 보이그룹 👊<br>괴물 루키 더스틴!</p>
+                                        <p style="line-height: 26px" class="g-color-white g-font-size-16 g-mb-0">더스틴이 인플루디오에서 소통을!<br>더스틴과 일상을 공유해보세요!<br>&nbsp;</p>
+                                        <a href="{% url 'entertainer_detail' unique_url='dustin' %}" style="background-color: #000000" class="btn btn-md g-rounded-5 g-mt-10 home-banner-btn g-color-white">지금 바로 만나보기</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Korea / mobile -->
+            <div id="carouselIndicators2" class="carousel slide carousel-fade g-rounded-5 g-hidden-lg-up" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselIndicators2" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselIndicators2" data-slide-to="1"></li>
+                    <li data-target="#carouselIndicators2" data-slide-to="2"></li>
+                    <li data-target="#carouselIndicators2" data-slide-to="3"></li>
+                    <li data-target="#carouselIndicators2" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_11.jpg' %}'); background-size: cover; background-repeat: no-repeat; width:100%; height: 420px; position:absolute; z-index: -1;"></div>
+                        <div class="container g-pt-40--lg g-px-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-7 g-px-5 g-hidden-md-down">
+                                    <a href="{% url 'entertainer_detail' unique_url='jongup' %}">
+                                        <img style="width: 100%;" src="{% static 'img/html/home/home_banner_11_m.jpg' %}" alt="main_banner">
+                                    </a>
+                                </div>
+                                <div class="col-sm-12 col-lg-5">
+                                    <div class="g-px-30 g-pt-30 g-pb-10">
+                                        <a href="{% url 'entertainer_detail' unique_url='jongup' %}" style="text-decoration: none;">
+                                            <p style="line-height: 47px" class="g-color-white g-font-size-32 g-font-weight-700">문워크들을 위해 💪<br>문종업이 여기 왔다!</p>
+                                            <p style="line-height: 26px" class="g-color-white-opacity-0_7 g-font-size-16">지금 인플루디오에서 문종업의 특별한<br>문워크가 되어보세요.</p>
+                                        </a>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='jongup' %}">
+                                        <div class="img-card g-rounded-top-5 g-rounded-bottom-5">
+                                            <div class="scale-card">
+                                                <img style="width: 100%;" src="{% static 'img/html/home/home_banner_11_m.jpg' %}" class="g-rounded-5" alt="main_banner">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_10.jpg' %}'); background-size: cover; background-repeat: no-repeat; width:100%; height: 420px; position:absolute; z-index: -1;"></div>
+                        <div class="container g-pt-40--lg g-px-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-7 g-px-5 g-hidden-md-down">
+                                    <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}">
+                                        <img style="width: 100%;" src="{% static 'img/html/home/home_banner_10_m.jpg' %}" alt="main_banner">
+                                    </a>
+                                </div>
+                                <div class="col-sm-12 col-lg-5">
+                                    <div class="g-px-30 g-pt-30 g-pb-10">
+                                        <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}" style="text-decoration: none;">
+                                            <p style="line-height: 47px" class="g-color-white g-font-size-32 g-font-weight-700">팬들의 선물같은 존재<br>드림노트가 왔어요.</p>
+                                            <p style="line-height: 26px" class="g-color-white-opacity-0_7 g-font-size-16">지금 인플루디오에서 드림노트의 특별한<br>페이지가 되어보세요.</p>
+                                        </a>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}">
+                                        <div class="img-card g-rounded-top-5 g-rounded-bottom-5">
+                                            <div class="scale-card">
+                                                <img style="width: 100%;" src="{% static 'img/html/home/home_banner_10_m.jpg' %}" class="g-rounded-5" alt="main_banner">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_8.jpg' %}'); background-size: cover; background-repeat: no-repeat; width:100%; height: 420px; position:absolute; z-index: -1;"></div>
+                        <div class="container g-pt-40--lg g-px-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-7 g-px-5 g-hidden-md-down">
+                                    <a href="{% url 'entertainer_detail' unique_url='ailee' %}">
+                                        <img style="width: 100%;" src="{% static 'img/html/home/home_banner_8_m.jpg' %}" alt="main_banner">
+                                    </a>
+                                </div>
+                                <div class="col-sm-12 col-lg-5">
+                                    <div class="g-px-30 g-pt-30 g-pb-10">
+                                        <a href="{% url 'entertainer_detail' unique_url='ailee' %}" style="text-decoration: none;">
+                                            <p style="line-height: 47px" class="g-color-white g-font-size-32 g-font-weight-700">K-POP 솔로 여왕 🏅<br>에일리가 돌아왔다!</p>
+                                            <p style="line-height: 26px" class="g-color-white-opacity-0_7 g-font-size-16">인플루디오에서만 볼 수 있는<br>에일리의 진짜 모습을 확인해보세요!</p>
+                                        </a>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='ailee' %}">
+                                        <div class="img-card g-rounded-top-5 g-rounded-bottom-5">
+                                            <div class="scale-card">
+                                                <img style="width: 100%;" src="{% static 'img/html/home/home_banner_8_m.jpg' %}" class="g-rounded-5" alt="main_banner">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_9.jpg' %}'); background-size: cover; background-repeat: no-repeat; width:100%; height: 420px; position:absolute; z-index: -1;"></div>
+                        <div class="container g-pt-40--lg g-px-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-7 g-px-5 g-hidden-md-down">
+                                    <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}">
+                                        <img style="width: 100%;" src="{% static 'img/html/home/home_banner_9_m.jpg' %}" alt="main_banner">
+                                    </a>
+                                </div>
+                                <div class="col-sm-12 col-lg-5">
+                                    <div class="g-px-30 g-pt-30 g-pb-10">
+                                        <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}" style="text-decoration: none;">
+                                            <p style="line-height: 47px" class="g-color-white g-font-size-36 g-font-weight-700">상큼발랄 걸그룹 🍀<br>퍼플백이 왔어요.</p>
+                                            <p style="line-height: 26px" class="g-color-white-opacity-0_7 g-font-size-16">퍼플백이 팬 여러분들을 찾아왔어요.<br>인플루디오에서 퍼플백과 만나요 ~</p>
+                                        </a>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}">
+                                        <div class="img-card g-rounded-top-5 g-rounded-bottom-5">
+                                            <div class="scale-card">
+                                                <img style="width: 100%;" src="{% static 'img/html/home/home_banner_9_m.jpg' %}" class="g-rounded-5" alt="main_banner">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_7.jpg' %}'); background-size: cover; background-repeat: no-repeat; width:100%; height: 420px; position:absolute; z-index: -1;"></div>
+                        <div class="container g-pt-40--lg g-px-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-7 g-px-5 g-hidden-md-down">
+                                    <a href="{% url 'entertainer_detail' unique_url='dustin' %}">
+                                        <img style="width: 100%;" src="{% static 'img/html/home/home_banner_7_m.jpg' %}" alt="main_banner">
+                                    </a>
+                                </div>
+                                <div class="col-sm-12 col-lg-5">
+                                    <div class="g-px-30 g-pt-30 g-pb-10">
+                                        <a href="{% url 'entertainer_detail' unique_url='dustin' %}" style="text-decoration: none;">
+                                            <p style="line-height: 47px" class="g-color-white g-font-size-36 g-font-weight-700">떠오르는 보이그룹<br>괴물 루키 더스틴!</p>
+                                            <p style="line-height: 26px" class="g-color-white-opacity-0_7 g-font-size-16">더스틴이 인플루디오에서 소통을!<br>더스틴과 일상을 공유해보세요!</p>
+                                        </a>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='dustin' %}">
+                                        <div class="img-card g-rounded-top-5 g-rounded-bottom-5">
+                                            <div class="scale-card">
+                                                <img style="width: 100%;" src="{% static 'img/html/home/home_banner_7_m.jpg' %}" class="g-rounded-5" alt="main_banner">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% else %}
+            <!-- Global / pc -->
+            <div id="carouselIndicators3" class="carousel slide carousel-fade g-rounded-5 g-hidden-md-down" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselIndicators3" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselIndicators3" data-slide-to="1"></li>
+                    <li data-target="#carouselIndicators3" data-slide-to="2"></li>
+                    <li data-target="#carouselIndicators3" data-slide-to="3"></li>
+                    <li data-target="#carouselIndicators3" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_11.jpg' %}');" class="home-bg-img-crop">
+                            <div class="container">
+                                <div class="g-pl-50--xl g-pt-70 g-pb-60">
+                                    <div class="g-mb-25">
+                                        <span style="background-color: #ff2c7d" class="g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">Idol</span>
+                                        <span style="position:relative; left: -4px" class="g-bg-gray-light-v5 g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">Jongup</span>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='jongup' %}" style="text-decoration: none;">
+                                        <p style="line-height: 55px" class="g-color-white g-font-size-46--md g-font-weight-700 g-mb-15">I am here 💪<br>for MOONW4LK</p>
+                                        <p style="line-height: 26px" class="g-color-white g-font-size-16 g-mb-0">Be Jongup's Special<br>MOONW4LK in Infludeo!<br>&nbsp;</p>
+                                        <a href="{% url 'entertainer_detail' unique_url='jongup' %}" style="background-color: #ff2c7d" class="btn btn-md g-rounded-5 g-mt-10 home-banner-btn g-color-gray-dark-v2">Meet Jongup now</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_10.jpg' %}');" class="home-bg-img-crop">
+                            <div class="container">
+                                <div class="g-pl-50--xl g-pt-70 g-pb-60">
+                                    <div class="g-mb-25">
+                                        <span style="background-color: #e7abff" class="g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">Idol</span>
+                                        <span style="position:relative; left: -4px" class="g-bg-gray-light-v5 g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">DreamNote</span>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}" style="text-decoration: none;">
+                                        <p style="line-height: 55px" class="g-color-white g-font-size-46--md g-font-weight-700 g-mb-15">I'm Your Present! 🎁<br>DreamNote is here.</p>
+                                        <p style="line-height: 26px" class="g-color-white g-font-size-16 g-mb-0">Be DreamNote's Special<br>"Page" in Infludeo!<br>&nbsp;</p>
+                                        <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}" style="background-color: #e7abff" class="btn btn-md g-rounded-5 g-mt-10 home-banner-btn g-color-gray-dark-v2">Meet DreamNote now</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_8.jpg' %}');" class="home-bg-img-crop">
+                            <div class="container">
+                                <div class="g-pl-50--xl g-pt-70 g-pb-60">
+                                    <div class="g-mb-25">
+                                        <span style="background-color: #000000" class="g-color-white g-px-10 g-py-5 g-font-size-12">Singer</span>
+                                        <span style="position:relative; left: -4px" class="g-bg-gray-light-v5 g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">Ailee</span>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='ailee' %}" style="text-decoration: none;">
+                                        <p style="line-height: 55px" class="g-color-black g-font-size-46--md g-font-weight-700 g-mb-15">Queen of Ballads<br>Ailee is back!</p>
+                                        <p style="line-height: 26px" class="g-color-black g-font-size-16 g-mb-0">Check out Ailee's true self<br>which can only be seen on Infludeo!<br>&nbsp;</p>
+                                        <a href="{% url 'entertainer_detail' unique_url='ailee' %}" style="background-color: #000000" class="btn btn-md g-rounded-5 g-mt-10 home-banner-btn g-color-white">Meet Ailee now</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_9.jpg' %}');" class="home-bg-img-crop">
+                            <div class="container">
+                                <div class="g-pl-50--xl g-pt-70 g-pb-60">
+                                    <div class="g-mb-25">
+                                        <span style="background-color: #8401ff" class="g-color-white g-px-10 g-py-5 g-font-size-12">Idol</span>
+                                        <span style="position:relative; left: -4px" class="g-bg-gray-light-v5 g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">Purplebeck</span>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}" style="text-decoration: none;">
+                                        <p style="line-height: 55px" class="g-color-white g-font-size-46--md g-font-weight-700 g-mb-15">Refreshing girl group 🍀<br>Purplebeck is here.</p>
+                                        <p style="line-height: 26px" class="g-color-white g-font-size-16 g-mb-0">Purplebeck come to visit fans.<br>Meeting Purplebeck at home.<br>&nbsp;</p>
+                                        <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}" style="background-color: #8401ff" class="btn btn-md g-rounded-5 g-mt-10 home-banner-btn g-color-white">Meet Purplebeck now</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_7.jpg' %}');" class="home-bg-img-crop">
+                            <div class="container">
+                                <div class="g-pl-50--xl g-pt-70 g-pb-60">
+                                    <div class="g-mb-25">
+                                        <span style="background-color: #000000" class="g-color-white g-px-10 g-py-5 g-font-size-12">Idol</span>
+                                        <span style="position:relative; left: -4px" class="g-bg-gray-light-v5 g-color-gray-dark-v2 g-px-10 g-py-5 g-font-size-12">Dustin</span>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='dustin' %}" style="text-decoration: none;">
+                                        <p style="line-height: 55px" class="g-color-white g-font-size-46--md g-font-weight-700 g-mb-15">Rising boy group<br>Rookie Dustin!</p>
+                                        <p style="line-height: 26px" class="g-color-white g-font-size-16 g-mb-0">Share your daily life<br>with Dustin on Infludeo!<br>&nbsp;</p>
+                                        <a href="{% url 'entertainer_detail' unique_url='dustin' %}" style="background-color: #000000" class="btn btn-md g-rounded-5 g-mt-10 home-banner-btn g-color-white">Meet Dustin now</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global / mobile -->
+            <div id="carouselIndicators4" class="carousel slide carousel-fade g-rounded-5 g-hidden-lg-up" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselIndicators4" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselIndicators4" data-slide-to="1"></li>
+                    <li data-target="#carouselIndicators4" data-slide-to="2"></li>
+                    <li data-target="#carouselIndicators4" data-slide-to="3"></li>
+                    <li data-target="#carouselIndicators4" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_11.jpg' %}'); background-size: cover; background-repeat: no-repeat; width:100%; height: 420px; position:absolute; z-index: -1;"></div>
+                        <div class="container g-pt-40--lg g-px-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-7 g-px-5 g-hidden-md-down">
+                                    <a href="{% url 'entertainer_detail' unique_url='jongup' %}">
+                                        <img style="width: 100%;" src="{% static 'img/html/home/home_banner_11_m.jpg' %}" alt="main_banner">
+                                    </a>
+                                </div>
+                                <div class="col-sm-12 col-lg-5">
+                                    <div class="g-px-30 g-pt-30 g-pb-10">
+                                        <a href="{% url 'entertainer_detail' unique_url='jongup' %}" style="text-decoration: none;">
+                                            <p style="line-height: 47px" class="g-color-white g-font-size-32 g-font-weight-700">I am here 💪<br>for MOONW4LK</p>
+                                            <p style="line-height: 26px" class="g-color-white-opacity-0_7 g-font-size-16">Be Jongup's Special<br>MOONW4LK in Infludeo!</p>
+                                        </a>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='jongup' %}">
+                                        <div class="img-card g-rounded-top-5 g-rounded-bottom-5">
+                                            <div class="scale-card">
+                                                <img style="width: 100%;" src="{% static 'img/html/home/home_banner_11_m.jpg' %}" class="g-rounded-5" alt="main_banner">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_10.jpg' %}'); background-size: cover; background-repeat: no-repeat; width:100%; height: 420px; position:absolute; z-index: -1;"></div>
+                        <div class="container g-pt-40--lg g-px-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-7 g-px-5 g-hidden-md-down">
+                                    <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}">
+                                        <img style="width: 100%;" src="{% static 'img/html/home/home_banner_10_m.jpg' %}" alt="main_banner">
+                                    </a>
+                                </div>
+                                <div class="col-sm-12 col-lg-5">
+                                    <div class="g-px-30 g-pt-30 g-pb-10">
+                                        <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}" style="text-decoration: none;">
+                                            <p style="line-height: 47px" class="g-color-white g-font-size-28 g-font-weight-700">I'm Your Present! 🎁<br>DreamNote is here.</p>
+                                            <p style="line-height: 26px" class="g-color-white-opacity-0_7 g-font-size-16">Be DreamNote's Special<br>"Page" in Infludeo!</p>
+                                        </a>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}">
+                                        <div class="img-card g-rounded-top-5 g-rounded-bottom-5">
+                                            <div class="scale-card">
+                                                <img style="width: 100%;" src="{% static 'img/html/home/home_banner_10_m.jpg' %}" class="g-rounded-5" alt="main_banner">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_8.jpg' %}'); background-size: cover; background-repeat: no-repeat; width:100%; height: 420px; position:absolute; z-index: -1;"></div>
+                        <div class="container g-pt-40--lg g-px-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-7 g-px-5 g-hidden-md-down">
+                                    <a href="{% url 'entertainer_detail' unique_url='ailee' %}">
+                                        <img style="width: 100%;" src="{% static 'img/html/home/home_banner_8_m.jpg' %}" alt="main_banner">
+                                    </a>
+                                </div>
+                                <div class="col-sm-12 col-lg-5">
+                                    <div class="g-px-30 g-pt-30 g-pb-10">
+                                        <a href="{% url 'entertainer_detail' unique_url='ailee' %}" style="text-decoration: none;">
+                                            <p style="line-height: 47px" class="g-color-white g-font-size-32 g-font-weight-700">Queen of Ballads<br>Ailee is back!</p>
+                                            <p style="line-height: 26px" class="g-color-white-opacity-0_7 g-font-size-16">Check out Ailee's true self<br>which can only be seen on Infludeo!</p>
+                                        </a>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='ailee' %}">
+                                        <div class="img-card g-rounded-top-5 g-rounded-bottom-5">
+                                            <div class="scale-card">
+                                                <img style="width: 100%;" src="{% static 'img/html/home/home_banner_8_m.jpg' %}" class="g-rounded-5" alt="main_banner">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_9.jpg' %}'); background-size: cover; background-repeat: no-repeat; width:100%; height: 420px; position:absolute; z-index: -1;"></div>
+                        <div class="container g-pt-40--lg g-px-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-7 g-px-5 g-hidden-md-down">
+                                    <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}">
+                                        <img style="width: 100%;" src="{% static 'img/html/home/home_banner_9_m.jpg' %}" alt="main_banner">
+                                    </a>
+                                </div>
+                                <div class="col-sm-12 col-lg-5">
+                                    <div class="g-px-30 g-pt-30 g-pb-10">
+                                        <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}" style="text-decoration: none;">
+                                            <p style="line-height: 47px" class="g-color-white g-font-size-28 g-font-weight-700">Refreshing girl group<br>Purplebeck is here.</p>
+                                            <p style="line-height: 26px" class="g-color-white-opacity-0_7 g-font-size-16">Purplebeck come to visit fans.<br>Meeting Purplebeck at home.</p>
+                                        </a>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}">
+                                        <div class="img-card g-rounded-top-5 g-rounded-bottom-5">
+                                            <div class="scale-card">
+                                                <img style="width: 100%;" src="{% static 'img/html/home/home_banner_9_m.jpg' %}" class="g-rounded-5" alt="main_banner">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="background-image: url('{% static 'img/html/home/home_banner_7.jpg' %}'); background-size: cover; background-repeat: no-repeat; width:100%; height: 420px; position:absolute; z-index: -1;"></div>
+                        <div class="container g-pt-40--lg g-px-10">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-7 g-px-5 g-hidden-md-down">
+                                    <a href="{% url 'entertainer_detail' unique_url='dustin' %}">
+                                        <img style="width: 100%;" src="{% static 'img/html/home/home_banner_7_m.jpg' %}" alt="main_banner">
+                                    </a>
+                                </div>
+                                <div class="col-sm-12 col-lg-5">
+                                    <div class="g-px-30 g-pt-30 g-pb-10">
+                                        <a href="{% url 'entertainer_detail' unique_url='dustin' %}" style="text-decoration: none;">
+                                            <p style="line-height: 47px" class="g-color-white g-font-size-32 g-font-weight-700">Rising boy group<br>Rookie Dustin!</p>
+                                            <p style="line-height: 26px" class="g-color-white-opacity-0_7 g-font-size-16">Share your daily life<br>with Dustin on Infludeo!</p>
+                                        </a>
+                                    </div>
+                                    <a href="{% url 'entertainer_detail' unique_url='dustin' %}">
+                                        <div class="img-card g-rounded-top-5 g-rounded-bottom-5">
+                                            <div class="scale-card">
+                                                <img style="width: 100%;" src="{% static 'img/html/home/home_banner_7_m.jpg' %}" class="g-rounded-5" alt="main_banner">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Celeb -->
+    <div class="container g-px-20 g-pt-20--lg g-pb-30--lg">
+        <div class="g-mt-50">
+            <h2 class="g-color-white g-font-size-20 g-font-size-32--md g-font-weight-700 text-left g-mb-0">{{ _("어떤 아티스트를 찾으세요?") }}</h2>
+            <p class="g-color-gray-light-v3 g-font-size-18--md g-font-weight-400">{{ _("다양한 K-POP 아티스트들이 팬 여러분을 기다리고 있어요.") }}</p>
+        </div>
+    </div>
+
+    <!-- Nav -->
+    <div class="g-mt-30 g-mt-0--md g-pb-50--lg">
+        <!-- Nav PC -->
+        <div style="background-color: #222222" class="text-center g-hidden-md-down">
+            <div class="container">
+                <div style="display: inline-block" class="g-py-30 g-pr-20 text-center">
+                    <a href="#ent-15" style="text-decoration: none">
+                        <img style="height: 100px; width: 100px; display: block;" class="rounded-circle border g-brd-2 g-brd-white home-profile-blur g-brd-infludeo--hover g-mb-15" src="{% static 'img/html/home/home_ent_pf_15.jpg' %}" alt="Ailee">
+                        <span class="g-font-size-18--md g-color-white">Ailee</span>
+                    </a>
+                </div>
+                <div style="display: inline-block" class="g-py-30 g-px-20 text-center">
+                    <a href="#ent-13" style="text-decoration: none">
+                        <img style="height: 100px; width: 100px; display: block;" class="rounded-circle border g-brd-2 g-brd-white home-profile-blur g-brd-infludeo--hover g-mb-15" src="{% static 'img/html/home/home_ent_pf_13.jpg' %}" alt="Dustin">
+                        <span class="g-font-size-18--md g-color-white">Dustin</span>
+                    </a>
+                </div>
+                <div style="display: inline-block" class="g-py-30 g-px-20 text-center">
+                    <a href="#ent-14" style="text-decoration: none">
+                        <img style="height: 100px; width: 100px; display: block;" class="rounded-circle border g-brd-2 g-brd-white home-profile-blur g-brd-infludeo--hover g-mb-15" src="{% static 'img/html/home/home_ent_pf_14.jpg' %}" alt="Purplebeck">
+                        <span class="g-font-size-18--md g-color-white">Purplebeck</span>
+                    </a>
+                </div>
+                <div style="display: inline-block" class="g-py-30 g-px-20 text-center">
+                    <a href="#ent-9" style="text-decoration: none">
+                        <img style="height: 100px; width: 100px; display: block;" class="rounded-circle border g-brd-2 g-brd-white home-profile-blur g-brd-infludeo--hover g-mb-15" src="{% static 'img/html/home/home_ent_pf_9.jpg' %}" alt="Hyojun">
+                        <span class="g-font-size-18--md g-color-white">Hyojun</span>
+                    </a>
+                </div>
+                <div style="display: inline-block" class="g-py-30 g-px-20 text-center">
+                    <a href="#ent-16" style="text-decoration: none">
+                        <img style="height: 100px; width: 100px; display: block;" class="rounded-circle border g-brd-2 g-brd-white home-profile-blur g-brd-infludeo--hover g-mb-15" src="{% static 'img/html/home/home_ent_pf_16.jpg' %}" alt="Dreamnote">
+                        <span class="g-font-size-18--md g-color-white">DreamNote</span>
+                    </a>
+                </div>
+                <div style="display: inline-block" class="g-py-30 g-pl-20 text-center">
+                    <a href="{% url 'entertainer_list' divider='all' %}" style="height: 100px; width: 100px; display: block; text-decoration: none" class="rounded-circle home-profile-blur more-btn-gradation g-mb-15 g-color-white g-font-size-16"><span class="g-font-size-36 g-mb-0">+</span><br>More</a>
+                    <span class="g-font-size-18--md g-color-white">&nbsp;</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nav Mobile -->
+        <div style="background-color: #222222" class="text-center g-hidden-lg-up g-py-5">
+            <div class="container">
+                <div style="display: inline-block" class="g-mx-10 g-my-10 text-center">
+                    <a href="#ent-1515" style="text-decoration: none">
+                        <img style="height: 90px; width: 90px; display: block;" class="rounded-circle border g-brd-2 g-brd-white home-profile-blur g-brd-infludeo--hover g-mb-5" src="{% static 'img/html/home/home_ent_pf_15.jpg' %}" alt="Ailee">
+                        <span class="g-font-size-18--md g-color-white">Ailee</span>
+                    </a>
+                </div>
+                <div style="display: inline-block" class="g-mx-10 g-my-10 text-center">
+                    <a href="#ent-1313" style="text-decoration: none">
+                        <img style="height: 90px; width: 90px; display: block;" class="rounded-circle border g-brd-2 g-brd-white home-profile-blur g-brd-infludeo--hover g-mb-5" src="{% static 'img/html/home/home_ent_pf_13.jpg' %}" alt="Dustin">
+                        <span class="g-font-size-18--md g-color-white">Dustin</span>
+                    </a>
+                </div>
+                <div style="display: inline-block" class="g-mx-10 g-my-10 text-center">
+                    <a href="#ent-1414" style="text-decoration: none">
+                        <img style="height: 90px; width: 90px; display: block;" class="rounded-circle border g-brd-2 g-brd-white home-profile-blur g-brd-infludeo--hover g-mb-5" src="{% static 'img/html/home/home_ent_pf_14.jpg' %}" alt="purplebeck">
+                        <span class="g-font-size-18--md g-color-white">Purplebeck</span>
+                    </a>
+                </div>
+                <div style="display: inline-block" class="g-mx-10 g-my-10 text-center">
+                    <a href="#ent-99" style="text-decoration: none">
+                        <img style="height: 90px; width: 90px; display: block;" class="rounded-circle border g-brd-2 g-brd-white home-profile-blur g-brd-infludeo--hover g-mb-5" src="{% static 'img/html/home/home_ent_pf_9.jpg' %}" alt="Hyojun">
+                        <span class="g-font-size-18--md g-color-white">Hyojun</span>
+                    </a>
+                </div>
+                <div style="display: inline-block" class="g-mx-10 g-my-10 text-center">
+                    <a href="#ent-1616" style="text-decoration: none">
+                        <img style="height: 90px; width: 90px; display: block;" class="rounded-circle border g-brd-2 g-brd-white home-profile-blur g-brd-infludeo--hover g-mb-5" src="{% static 'img/html/home/home_ent_pf_16.jpg' %}" alt="Dreamnote">
+                        <span class="g-font-size-18--md g-color-white">DreamNote</span>
+                    </a>
+                </div>
+                <div style="display: inline-block" class="g-mx-10 g-my-10 text-center">
+                    <a href="{% url 'entertainer_list' divider='all' %}" style="height: 90px; width: 90px; display: block; text-decoration: none" class="rounded-circle home-profile-blur more-btn-gradation g-mb-5 g-color-white"><span class="g-font-size-28 g-mb-0">+</span><br>More</a>
+                    <span class="g-font-size-18--md g-color-white">&nbsp;</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Star list PC -->
+        <div class="container g-mt-50 g-hidden-md-down">
+            <a href="{% url 'entertainer_detail' unique_url='ailee' %}">
+                <div id="ent-15" style="background-image: url('{% static 'img/html/home/home_ent_15.jpg' %}'); height: 560px; position: relative;" class="home-bg-img-crop g-rounded-10 g-mb-30">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 100%" class="home-ent-banner g-rounded-10"></div>
+                    <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-ml-63--md g-mb-45--md g-pt-50">
+                        <p class="g-font-size-40--md g-font-weight-700 g-mb-0">Ailee&nbsp;&nbsp;<span class="g-font-size-20--md g-font-weight-400">Singer</span></p>
+                        <p class="g-font-size-26--md g-mb-0">Queen of Ballads</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'entertainer_detail' unique_url='dustin' %}">
+                <div id="ent-13" style="background-image: url('{% static 'img/html/home/home_ent_13.jpg' %}'); height: 560px; position: relative;" class="home-bg-img-crop g-rounded-10 g-mb-30">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 100%" class="home-ent-banner g-rounded-10"></div>
+                    <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-ml-63--md g-mb-45--md g-pt-50">
+                        <p class="g-font-size-40--md g-font-weight-700 g-mb-0">Dustin&nbsp;&nbsp;<span class="g-font-size-20--md g-font-weight-400">Idol</span></p>
+                        <p class="g-font-size-26--md g-mb-0">New rise of K-POP boy group</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}">
+                <div id="ent-14" style="background-image: url('{% static 'img/html/home/home_ent_14.jpg' %}'); height: 560px; position: relative;" class="home-bg-img-crop g-rounded-10 g-mb-30">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 100%" class="home-ent-banner g-rounded-10"></div>
+                    <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-ml-63--md g-mb-45--md g-pt-50">
+                        <p class="g-font-size-40--md g-font-weight-700 g-mb-0">Purplebeck&nbsp;&nbsp;<span class="g-font-size-20--md g-font-weight-400">Idol</span></p>
+                        <p class="g-font-size-26--md g-mb-0">At your beck and call!</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'entertainer_detail' unique_url='hyojun' %}">
+                <div id="ent-9" style="background-image: url('{% static 'img/html/home/home_ent_9.jpg' %}'); height: 560px; position: relative;" class="home-bg-img-crop g-rounded-10 g-mb-30">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 100%" class="home-ent-banner g-rounded-10"></div>
+                    <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-ml-63--md g-mb-45--md g-pt-50">
+                        <p class="g-font-size-40--md g-font-weight-700 g-mb-0">Hyojun&nbsp;&nbsp;<span class="g-font-size-20--md g-font-weight-400">Singer</span></p>
+                        <p class="g-font-size-26--md g-mb-0">Rising K-ballader! sweet voice, Hyojun</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}">
+                <div id="ent-16" style="background-image: url('{% static 'img/html/home/home_ent_16.jpg' %}'); height: 560px; position: relative;" class="home-bg-img-crop g-rounded-10 g-mb-30">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 100%" class="home-ent-banner g-rounded-10"></div>
+                    <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-ml-63--md g-mb-45--md g-pt-50">
+                        <p class="g-font-size-40--md g-font-weight-700 g-mb-0">DreamNote&nbsp;&nbsp;<span class="g-font-size-20--md g-font-weight-400">Idol</span></p>
+                        <p class="g-font-size-26--md g-mb-0">I'm Your Present!</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Star list Mobile -->
+        <div class="container g-mt-30 g-hidden-lg-up">
+            <a href="{% url 'entertainer_detail' unique_url='ailee' %}">
+                <div id="ent-1515" style="background-image: url('{% static 'img/html/home/home_ent_15.jpg' %}'); height: 180px; position: relative;" class="home-bg-img-crop g-rounded-5 g-mb-15">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 100%" class="home-ent-banner g-rounded-5"></div>
+                    <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-pl-15 g-mb-15">
+                        <p class="g-font-size-18 g-font-weight-700 g-mb-0">Ailee&nbsp;&nbsp;<span class="g-font-size-14 g-font-weight-400">Singer</span></p>
+                        <p class="g-font-size-12 g-mb-0">Queen of Ballads</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'entertainer_detail' unique_url='dustin' %}">
+                <div id="ent-1313" style="background-image: url('{% static 'img/html/home/home_ent_13.jpg' %}'); height: 180px; position: relative;" class="home-bg-img-crop g-rounded-5 g-mb-15">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 100%" class="home-ent-banner g-rounded-5"></div>
+                    <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-pl-15 g-mb-15">
+                        <p class="g-font-size-18 g-font-weight-700 g-mb-0">Dustin&nbsp;&nbsp;<span class="g-font-size-14 g-font-weight-400">Idol</span></p>
+                        <p class="g-font-size-12 g-mb-0">New rise of K-POP boy group</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'entertainer_detail' unique_url='purplebeck' %}">
+                <div id="ent-1414" style="background-image: url('{% static 'img/html/home/home_ent_14.jpg' %}'); height: 180px; position: relative;" class="home-bg-img-crop g-rounded-5 g-mb-15">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 100%" class="home-ent-banner g-rounded-5"></div>
+                    <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-pl-15 g-mb-15">
+                        <p class="g-font-size-18 g-font-weight-700 g-mb-0">Purplebeck&nbsp;&nbsp;<span class="g-font-size-14 g-font-weight-400">Idol</span></p>
+                        <p class="g-font-size-12 g-mb-0">At your beck and call!</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'entertainer_detail' unique_url='hyojun' %}">
+                <div id="ent-99" style="background-image: url('{% static 'img/html/home/home_ent_9.jpg' %}'); height: 180px; position: relative;" class="home-bg-img-crop g-rounded-5 g-mb-15">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 100%" class="home-ent-banner g-rounded-5"></div>
+                    <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-pl-15 g-mb-15">
+                        <p class="g-font-size-18 g-font-weight-700 g-mb-0">Hyojun&nbsp;&nbsp;<span class="g-font-size-14 g-font-weight-400">Singer</span></p>
+                        <p class="g-font-size-12 g-mb-0">Rising K-ballader! sweet voice, Hyojun</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'entertainer_detail' unique_url='dreamnote' %}">
+                <div id="ent-1616" style="background-image: url('{% static 'img/html/home/home_ent_16.jpg' %}'); height: 180px; position: relative;" class="home-bg-img-crop g-rounded-5 g-mb-15">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 100%" class="home-ent-banner g-rounded-5"></div>
+                    <div style="color: #fafafa; position: absolute; bottom: 0;" class="g-pl-15 g-mb-15">
+                        <p class="g-font-size-18 g-font-weight-700 g-mb-0">DreamNote&nbsp;&nbsp;<span class="g-font-size-14 g-font-weight-400">Idol</span></p>
+                        <p class="g-font-size-12 g-mb-0">I'm Your Present!</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <hr class="g-m-0 g-bg-gray-dark-v2 g-hidden-md-down">
+{% endblock %}
